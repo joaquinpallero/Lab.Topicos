@@ -1,0 +1,30 @@
+const int ledPinV = 2; // conectado en pin 2
+const int ledPinA = 4;
+const int ledPinR = 6;
+int buttonState = 0; // variable del estado del boton
+const int buttonPin = 1; // conectado pin 1
+int i; // variable contador
+
+void setup() {
+  pinMode(ledPinV, OUTPUT); // ledPin sea una salida
+  pinMode(ledPinA, OUTPUT);
+  pinMode(ledPinR, OUTPUT);
+  pinMode(buttonPin, INPUT); // buttonPin sea una entrada
+}
+
+void loop() { // ciclo o programa que se ejecuta permanentemente
+  buttonState = digitalRead(buttonPin); // lea el estado del buttonPin y guarde en buttonState 
+   
+  if (buttonState == HIGH) { // si el boton esta en 5v, entonces enciende led
+    digitalWrite(ledPinV, HIGH);
+    digitalWrite(ledPinA, LOW);
+    digitalWrite(ledPinR, LOW);
+   } else { // si no esta conectado o 0v
+   	 for (i=ledPinV; i<=ledPinR;i++){
+   	 digitalWrite(i,HIGH);
+   	 delay(100);
+  	 digitalWrite(i,LOW);
+     delay(100);
+       }
+    }
+  	}
